@@ -1,7 +1,5 @@
-import Cart from "../models/cart";
-import Product from "../models/product";
-import User from "../models/user";
 import { StatusCodes } from "http-status-codes";
+import Cart from "../models/cart";
 
 export const getCartByUserId = async (req, res) => {
     // GET /cart/:userId
@@ -39,7 +37,7 @@ export const addItemToCart = async (req, res) => {
         // kiểm tra xem sản có tồn tại trong giỏ hàng không?
         if (existProductIndex !== -1) {
             // nếu mà sản phẩm tồn tại trong giỏ hàng thì chúng ta cập nhật số lượng
-            cart.products[1].quantity += quantity;
+            cart.products[existProductIndex].quantity += quantity;
         } else {
             // nếu sản phẩm chưa có trong giỏ hàng thì chúng ta thêm mới
             cart.products.push({ productId, quantity });

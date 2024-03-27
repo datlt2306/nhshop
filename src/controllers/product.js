@@ -53,7 +53,10 @@ export const updateProductById = async (req, res) => {
 
 export const related = async (req, res) => {
     try {
-        const product = await Product.find({ category: req.params.categoryId }, null, { skip: 1 });
+        const product = await Product.find({
+            category: req.params.categoryId,
+            _id: { $ne: req.params.productId },
+        });
         return res.status(StatusCodes.OK).json(product);
     } catch (error) {}
 };
