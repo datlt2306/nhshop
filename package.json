@@ -23,6 +23,7 @@
         "joi": "^17.12.2",
         "jsonwebtoken": "^9.0.2",
         "mongoose": "^8.2.2",
+        "mongoose-paginate-v2": "^1.8.0",
         "slugify": "^1.6.6"
     }
 }
