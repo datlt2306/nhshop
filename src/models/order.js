@@ -1,9 +1,10 @@
+// orderItem
+
+// order
+
 import mongoose from "mongoose";
-const orderItemSchema = new mongoose.Schema({
-    _id: {
-        type: mongoose.Schema.Types.ObjectId,
-        auto: true,
-    },
+
+const OrderItemSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -18,34 +19,51 @@ const orderItemSchema = new mongoose.Schema({
     },
 });
 
-const orderSchema = new mongoose.Schema({
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
+const OrderSchema = new mongoose.Schema(
+    {
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        },
+        items: [OrderItemSchema],
+        orderNumber: {
+            type: String,
+            auto: true,
+            unique: true,
+        },
+        customerInfo: {
+            type: {
+                name: {
+                    type: String,
+                    required: true,
+                },
+                phone: {
+                    type: Number,
+                },
+                email: {
+                    type: String,
+                    required: true,
+                },
+                payment: {
+                    type: String,
+                },
+                city: {
+                    type: String,
+                },
+            },
+            required: true,
+        },
+        totalPrice: {
+            type: Number,
+            required: true,
+        },
+        status: {
+            type: String,
+            enum: ["pending", "confirmed", "shipped", "delivered", "cancelled"],
+            default: "pending",
+        },
     },
-    items: [orderItemSchema],
-    orderNumber: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    customerName: {
-        type: String,
-        required: true,
-    },
-    totalPrice: {
-        type: Number,
-        required: true,
-    },
-    status: {
-        type: String,
-        enum: ["pending", "confirmed", "shipped", "delivered"],
-        default: "pending",
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    },
-});
+    { timestamps: true, versionKey: false }
+);
 
-export default mongoose.model("Order", orderSchema);
+export default mongoose.model("Order", OrderSchema);
