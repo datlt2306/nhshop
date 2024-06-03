@@ -8,3 +8,22 @@ body {
 .container {
     @apply max-w-7xl mx-auto px-4;
 }
+.btn {
+    @apply h-[40px] leading-[40px] bg-primary rounded-full text-white inline-block text-sm px-6 transition ease-in-out duration-300;
+}
+.btn:hover {
+    @apply bg-green-700 shadow-md;
+}
+.btn-lg {
+    @apply h-[64px] leading-[64px] px-28 text-lg;
+}
+@media (min-width: 768px) {
+    .lg\:btn-lg {
+        @apply h-[64px] leading-[64px] px-28 text-lg;
+    }
+}
+@media (min-width: 1024px) {
+    .lg\:btn-lg {
+        @apply h-[64px] leading-[64px] px-28 text-lg;
+    }
+}
