@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: "Lexend", sans-serif;
+}
+.container {
+    @apply max-w-7xl mx-auto px-4;
+}
