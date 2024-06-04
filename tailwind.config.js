@@ -8,9 +8,6 @@ export default {
                 secondary: "#05422C",
                 "neutral-400": "#F4F4F4",
             },
-            backgroundImage: {
-                hero: "url('./assets/images/banner-desktop.jpg')",
-            },
             backgroundSize: {
                 "50%": "50%",
             },
