@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    font-family: "Lexend", sans-serif;
+    font-family: 'Lexend', sans-serif;
 }
 .container {
     @apply max-w-7xl mx-auto px-4;
@@ -18,8 +18,9 @@ body {
     @apply h-[64px] leading-[64px] px-28 text-lg;
 }
 .main-title {
-    @apply text-[32px]/[120%] lg:mb-5 lg:text-[64px]/[110%] -tracking-[1.5px] lg:-tracking-[4px];
+    @apply text-[32px]/[120%] lg:mb-5 lg:text-[64px]/[110%] -tracking-[1.5px] lg:-tracking-[4px] font-semibold;
 }
+
 @media (min-width: 768px) {
     .lg\:btn-lg {
         @apply h-[64px] leading-[64px] px-28 text-lg;
@@ -29,4 +30,12 @@ body {
     .lg\:btn-lg {
         @apply h-[64px] leading-[64px] px-28 text-lg;
     }
+}
+
+.out-of-stock {
+    background: rgba(26, 30, 38, 0.3);
+    backdrop-filter: blur(4px);
+}
+footer {
+    background: linear-gradient(180deg, #1a1e26 0%, #01100b 100%);
 }
